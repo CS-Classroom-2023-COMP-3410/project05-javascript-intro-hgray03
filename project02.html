@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Interactive To-Do List</title>
+  <style>
+    /* ========== Basic Styling ========== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(145deg, #fbe0c4, #f2a2e8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 2rem;
+      text-shadow: 1px 1px #fff;
+    }
+
+    /* ========== Container for the main To-Do app ========== */
+    #todo-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    /* ========== Input Area ========== */
+    #input-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+    #new-task-input {
+      flex: 1;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #add-task-btn {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #a162f7;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    #add-task-btn:hover {
+      background-color: #8d4dea;
+    }
+
+    /* ========== Filter Area ========== */
+    #filter-area {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+    #filter-area label {
+      font-weight: bold;
+    }
+    #filter-select {
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    /* ========== Task List ========== */
+    #task-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .task-item {
+      background-color: #fff;
+      margin-bottom: 8px;
+      padding: 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 0.2s;
+      cursor: grab;
+    }
+    .task-item:active {
+      cursor: grabbing;
+    }
+
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .task-item input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+    .task-text {
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .task-completed .task-text {
+      text-decoration: line-through;
+      color: #666;
+    }
+
+    /* ========== Editing Mode ========== */
+    .editing .task-text {
+      display: none;
+    }
+
+    .edit-input {
+      width: 180px;
+      padding: 4px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* ========== Buttons ========== */
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .edit-btn,
+    .delete-btn {
+      border: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    .edit-btn {
+      background-color: #ffd600;
+    }
+    .edit-btn:hover {
+      background-color: #ffca28;
+    }
+    .delete-btn {
+      background-color: #ef5350;
+      color: #fff;
+    }
+    .delete-btn:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Interactive To-Do List</h1>
+
+  <div id="todo-container">
+    <!-- Input for new tasks -->
+    <div id="input-area">
+      <input type="text" id="new-task-input" placeholder="Enter a new task..." />
+      <button id="add-task-btn">+</button>
+    </div>
+
+    <!-- Filter tasks -->
+    <div id="filter-area">
+      <label for="filter-select">Filter Tasks:</label>
+      <select id="filter-select">
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+
+    <!-- Task List -->
+    <ul id="task-list"></ul>
+  </div>
+
+  <!-- JS File -->
+  <script src="js/project02.js"></script>
+</body>
+</html>

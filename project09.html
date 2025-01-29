@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sorting Visualization Tool</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fafaff, #ffeef2);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    h1 {
+      margin: 20px 0 10px;
+      text-shadow: 1px 1px #fff;
+      font-size: 2rem;
+    }
+
+    /* Container for controls and the visualization area */
+    #controls-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    #algorithm-select,
+    #speed-slider {
+      padding: 6px 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #4caf50;
+      color: #fff;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #43a047;
+    }
+
+    /* Slider label */
+    .slider-label {
+      font-weight: bold;
+    }
+
+    /* Bars container */
+    #bars-container {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      height: 400px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    /* Each bar */
+    .bar {
+      background-color: #64b5f6;
+      margin: 2px;
+      transition: height 0.2s, background-color 0.2s;
+      flex: 1;
+    }
+    .bar.comparing {
+      background-color: #f06292 !important;
+    }
+    .bar.swapping {
+      background-color: #ffd54f !important;
+    }
+
+    /* Commentary */
+    #commentary {
+      width: 80%;
+      max-width: 800px;
+      height: 120px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sorting Visualization Tool</h1>
+
+  <!-- Controls -->
+  <div id="controls-container">
+    <select id="algorithm-select">
+      <option value="bubble">Bubble Sort</option>
+      <option value="insertion">Insertion Sort</option>
+    </select>
+
+    <label class="slider-label" for="speed-slider">Speed:</label>
+    <input type="range" id="speed-slider" min="1" max="1000" value="200" />
+
+    <button id="generate-btn">Generate</button>
+    <button id="sort-btn">Sort</button>
+  </div>
+
+  <!-- Bars Container -->
+  <div id="bars-container"></div>
+
+  <!-- Commentary -->
+  <div id="commentary"></div>
+
+  <script src="js/project09.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Periodic Table</title>
+  <style>
+    /* Basic Reset & Layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      margin: 20px 0;
+      text-shadow: 1px 1px #fff;
+      font-size: 2rem;
+    }
+
+    /* Container for everything */
+    #table-container {
+      max-width: 1200px;
+      width: 95%;
+      margin-bottom: 30px;
+    }
+
+    /* Search bar styling */
+    #search-bar {
+      display: flex;
+      margin-bottom: 15px;
+      gap: 8px;
+      justify-content: center;
+    }
+    #search-input {
+      padding: 6px 10px;
+      font-size: 1rem;
+      flex: 1;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #search-button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #2196f3;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #search-button:hover {
+      background-color: #1976d2;
+    }
+
+    /* Periodic table grid (18 columns for the main block) */
+    #periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, 60px);
+      grid-auto-rows: 70px;
+      gap: 3px;
+      justify-content: center;
+    }
+
+    /* Element cells */
+    .element-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .element-cell:hover {
+      transform: scale(1.05);
+    }
+    .hidden-cell {
+      visibility: hidden; /* for placeholders where no element is in that position */
+    }
+
+    /* Basic element text */
+    .atomic-number {
+      font-weight: bold;
+      font-size: 0.7rem;
+    }
+    .symbol {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .element-name {
+      font-size: 0.7rem;
+      margin-top: 2px;
+    }
+
+    /* Highlighted state */
+    .highlight {
+      outline: 3px solid #ffca28; 
+    }
+    .group-highlight {
+      background-color: #fff5c2; /* used for group highlighting */
+    }
+
+    /* Info panel for selected element */
+    #info-panel {
+      display: none;
+      background-color: #fff;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 600px;
+    }
+    #info-panel h2 {
+      margin-bottom: 10px;
+    }
+    #info-panel p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Periodic Table</h1>
+
+  <div id="table-container">
+    <!-- Search Bar -->
+    <div id="search-bar">
+      <input type="text" id="search-input" placeholder="Search by name, symbol or atomic number..." />
+      <button id="search-button">Search</button>
+    </div>
+
+    <!-- Periodic Table Grid -->
+    <div id="periodic-table"></div>
+  </div>
+
+  <!-- Info Panel for selected element details -->
+  <div id="info-panel"></div>
+
+  <script src="js/project06.js"></script>
+</body>
+</html>

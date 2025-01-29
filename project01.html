@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customizable Digital Clock</title>
+  <style>
+    /* Basic styling; feel free to customize */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, rgb(0, 0, 0), #d0e);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    #clock {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      transition: color 0.3s, font-size 0.3s;
+    }
+
+    /* Container for customization options */
+    #settings {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      margin-bottom: 30px;
+    }
+
+    .setting-group {
+      margin-bottom: 20px;
+    }
+
+    .setting-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .setting-group input[type="color"] {
+      cursor: pointer;
+    }
+
+    .setting-group input[type="range"] {
+      width: 100%;
+    }
+
+    #alarm-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    #alarm-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #alarm-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      border-radius: 4px;
+    }
+
+    #alarm-list button {
+      background-color: #ff7675;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      padding: 4px 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Awesome Digital Clock</h1>
+  <div id="clock">00:00:00</div>
+
+  <!-- Clock Customization Settings -->
+  <div id="settings">
+    <div class="setting-group">
+      <label for="time-format">Time Format:</label>
+      <select id="time-format">
+        <option value="12">12-hour</option>
+        <option value="24">24-hour</option>
+      </select>
+    </div>
+
+    <div class="setting-group">
+      <label for="color-picker">Clock Text Color:</label>
+      <input type="color" id="color-picker" value="#ffffff" />
+    </div>
+
+    <div class="setting-group">
+      <label for="font-size">Font Size (px):</label>
+      <input type="range" id="font-size" min="30" max="100" value="64" />
+    </div>
+
+    <!-- Alarm Section -->
+    <div class="setting-group">
+      <label>Set an Alarm:</label>
+      <form id="alarm-form">
+        <input type="time" id="alarm-time" />
+        <button type="submit">Add Alarm</button>
+      </form>
+      <ul id="alarm-list"></ul>
+    </div>
+  </div>
+
+  <script src="js/project01.js"></script>
+</body>
+</html>

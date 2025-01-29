@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Story Game</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #faf0e6, #ffe4e1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2rem;
+      text-shadow: 1px 1px #fff;
+    }
+
+    /* Main container */
+    #game-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Story text area */
+    #story-text {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      min-height: 100px;
+    }
+
+    /* Progress Bar */
+    #progress-bar-container {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      height: 16px;
+      width: 100%;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    #progress-bar {
+      background-color: #81c784;
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s;
+    }
+
+    /* Choices area */
+    #choices {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .choice-btn {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #64b5f6;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .choice-btn:hover {
+      background-color: #42a5f5;
+    }
+
+    /* Buttons container */
+    #buttons-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    #reset-btn {
+      background-color: #ef5350;
+      color: #fff;
+    }
+    #reset-btn:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Story Game</h1>
+
+  <div id="game-container">
+    <!-- Progress Bar -->
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+
+    <!-- Story Text -->
+    <div id="story-text"></div>
+
+    <!-- Choices -->
+    <div id="choices"></div>
+
+    <!-- Buttons (Reset, etc.) -->
+    <div id="buttons-container">
+      <button id="reset-btn">Reset Game</button>
+    </div>
+  </div>
+
+  <script src="js/project08.js"></script>
+</body>
+</html>

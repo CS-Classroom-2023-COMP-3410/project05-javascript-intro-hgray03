@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Matching Game</title>
+  <style>
+    /* Basic reset and body style */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f9ecd0, #fbdada);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Container for the entire game */
+    #game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    /* Stats (moves/time) + restart button */
+    #stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    #moves,
+    #time {
+      font-weight: bold;
+    }
+
+    #restart-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #ffd268;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    #restart-btn:hover {
+      background-color: #ffc14d;
+    }
+
+    /* The card grid */
+    #card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+
+    /* Each card */
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card.flipped {
+      /* Indicate a revealed card with a subtle style */
+      background-color: #f8ffd2;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+      transform: scale(1.05);
+    }
+    .card.match {
+      /* Indicate a matched card with a highlight */
+      background-color: #d7fadb;
+      box-shadow: 0 0 10px rgba(52, 199, 89, 0.4);
+    }
+
+    /* Hide the symbol if not flipped */
+    .symbol {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card.flipped .symbol,
+    .card.match .symbol {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Memory Matching Game</h1>
+
+  <div id="game-container">
+    <!-- Stats and restart button -->
+    <div id="stats">
+      <span id="moves">Moves: 0</span>
+      <button id="restart-btn">Restart</button>
+      <span id="time">Time: 0s</span>
+    </div>
+
+    <!-- Card grid -->
+    <div id="card-grid"></div>
+  </div>
+
+  <script src="js/project03.js"></script>
+</body>
+</html>

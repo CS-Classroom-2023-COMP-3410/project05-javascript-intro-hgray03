@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dynamic Quiz App</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #faf0f0, #ffd2d2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Container for the entire quiz */
+    #quiz-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .question-counter {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Options styling */
+    .options-container {
+      margin: 10px 0 20px;
+    }
+    .option {
+      margin-bottom: 8px;
+    }
+    .option input {
+      margin-right: 6px;
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    .option label {
+      cursor: pointer;
+    }
+
+    /* Feedback section */
+    #feedback {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    #feedback.correct {
+      color: green;
+    }
+    #feedback.incorrect {
+      color: red;
+    }
+
+    /* Navigation buttons */
+    .button-container {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    #next-btn {
+      background-color: #8bc34a;
+      color: #fff;
+    }
+    #finish-btn {
+      background-color: #f44336;
+      color: #fff;
+    }
+    #restart-btn {
+      background-color: #2196f3;
+      color: #fff;
+    }
+
+    /* Summary Section */
+    #summary-container {
+      display: none;
+      text-align: center;
+    }
+    #summary-container h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    .summary-item {
+      text-align: left;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 4px;
+    }
+    .summary-item.correct-answer {
+      border-left: 4px solid green;
+    }
+    .summary-item.incorrect-answer {
+      border-left: 4px solid red;
+    }
+    .summary-item p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Quiz App</h1>
+
+  <div id="quiz-container">
+    <div class="question-counter" id="question-counter">Question X of Y</div>
+    <div class="question-text" id="question-text">Question text goes here</div>
+    <div class="options-container" id="options-container">
+      <!-- Radio button options go here -->
+    </div>
+
+    <div id="feedback"></div>
+
+    <div class="button-container">
+      <button id="next-btn">Next</button>
+      <button id="finish-btn">Finish</button>
+    </div>
+  </div>
+
+  <!-- Summary container (hidden until quiz is finished) -->
+  <div id="summary-container">
+    <h2>Your Results</h2>
+    <p id="score-display"></p>
+    <div id="summary-details"></div>
+    <button id="restart-btn">Restart Quiz</button>
+  </div>
+
+  <script src="js/project04.js"></script>
+</body>
+</html>
